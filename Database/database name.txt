@@ -1,0 +1,2 @@
+RestaurantManagement
+jdbc:mysql://localhost:3306/RestaurantManagement?zeroDateTimeBehavior=convertToNull [root on Default schema]
