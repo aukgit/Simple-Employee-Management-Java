@@ -536,7 +536,7 @@ public class EmployeeForm extends CommonJPanel implements ISoftwareInformation {
     @Override
     public boolean DeleteMaster() {
         int[] selected = masterTable.getSelectedRows();
-        List<org.bd.dev.res.database.items.Employee> toRemove = new ArrayList<org.bd.dev.res.database.items.Employee>(selected.length);
+        List<org.bd.dev.res.database.items.Employee> toRemove = new ArrayList<>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
             org.bd.dev.res.database.items.Employee F = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(F);

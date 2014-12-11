@@ -133,7 +133,6 @@ public final class Picture implements ActionListener, ISoftwareInformation {
         try {
             image = ImageIO.read(file);
         } catch (IOException e) {
-            e.printStackTrace();
             throw new RuntimeException("Could not open file: " + file);
         }
         if (image == null) {
