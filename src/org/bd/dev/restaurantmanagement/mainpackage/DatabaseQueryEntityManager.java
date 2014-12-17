@@ -15,8 +15,7 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.Query;
-import javax.persistence.EntityManager;
+
 
 public class DatabaseQueryEntityManager implements ISoftwareInformation, QueryTypes {
 
@@ -340,19 +339,17 @@ public class DatabaseQueryEntityManager implements ISoftwareInformation, QueryTy
 
     //5 Between Query
     private String BetweenQuery(String Field, String Search) {
-        String q = "";
-        if (Search.trim().equals("")) {
+        String queryReturn;
+        if (Search == null || "".equals(Search.trim()) || Search.contains(";") == false) {
             return "";
         }
-        if (Search.equals("") || Search.indexOf(";") == -1) {
-            return "";
-        }
+     
         String params[] = Search.split("[;]");
         if (params.length != 2) {
             return "";
         }
-        q = (Field) + " BETWEEN '" + params[0] + "' AND '" + params[1] + "'";
-        return "( " + q + " )";
+        queryReturn = (Field) + " BETWEEN '" + params[0] + "' AND '" + params[1] + "'";
+        return "( " + queryReturn + " )";
     }
 
     private String ReturnSingleQuery(String Field, String Search, int type, String opt) {
